@@ -75,6 +75,7 @@ class Chatwork
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($option, '', '&'));
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // or // curl_setopt($ch, CURLOPT_CAINFO, '/path/to/cacert.pem');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             $response = curl_exec($ch);
         } catch (ClientException $exception) {
             throw CouldNotSendNotification::serviceRespondedWithAnError($exception);
